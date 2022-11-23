@@ -41,4 +41,12 @@ $(function () {
     var savedValue = localStorage.getItem(`hour-${id}`);
     $(`#hour-${id}-description`).val(savedValue);
   });
+
+  // Event listener to clear all schedule info.
+  $("#clear-btn").on("click", () => {
+    businessHours.forEach((hour) => {
+      $(`#hour-${hour}-description`).val("");
+      localStorage.clear();
+    });
+  });
 });
